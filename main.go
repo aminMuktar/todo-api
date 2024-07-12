@@ -1,7 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"todo-api/cmd"
+)
 
 func main() {
-	fmt.Println("Initialize scyllaDB  via Docker Compose.")
+	cmd.Execute()
 }

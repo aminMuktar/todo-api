@@ -6,3 +6,5 @@ down:
 	docker-compose down
 build:
 	go build -o todoapp main.go
+migrate: build
+	./todoapp migrate up
