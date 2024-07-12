@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  scylla-todoapp:
+    image: scylladb/scylla:latest
+    container_name: scylla-todoapp
+    ports:
+      - "9042:9042"
+      - "9180:9180"
+    volumes:
+      - scylla-data:/var/lib/scylla
+    command: --smp 1 --memory 1G
+
+volumes:
+  scylla-data:

@@ -3,5 +3,5 @@ package main
 import "fmt"
 
 func main() {
-	fmt.Println("Initializing the project struture")
+	fmt.Println("Initialize scyllaDB  via Docker Compose.")
 }
