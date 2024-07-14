@@ -8,8 +8,7 @@ import (
 )
 
 type Connection struct {
-	Session  *gocql.Session
-	Keyspace string
+	*gocql.Session
 }
 
 func New(cfg config.Config) (*Connection, error) {
@@ -27,15 +26,6 @@ func New(cfg config.Config) (*Connection, error) {
 	}
 
 	return &Connection{
-		Session:  session,
-		Keyspace: cfg.DB.Keyspace,
+		Session: session,
 	}, nil
-}
-
-func (c *Connection) Close() {
-	c.Session.Close()
-}
-
-func (c *Connection) Name() string {
-	return c.Keyspace
 }
