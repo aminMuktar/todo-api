@@ -2,7 +2,7 @@ app:
   env: "local"
 
 server:
-  port: "8080"
+  port: "8081"
 
 db:
   driver: "cassandra"
@@ -13,4 +13,4 @@ db:
   password: "cassandra"
   keyspace: "todoapp"
   contact_points: "localhost:9042"
-  migrations_path: "file://db/migration"
+  migrations_path: "db/migration/"

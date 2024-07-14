@@ -6,5 +6,9 @@ down:
 	docker-compose down
 build:
 	go build -o todoapp main.go
-migrate: build
-	./todoapp migrate up
+migrate-up:
+	docker-compose exec -T scylla-todoapp cqlsh -f /migrations/0001_init_schema.up.cql	
+	docker-compose exec -T scylla-todoapp cqlsh -f /migrations/0002_init_schema.up.cql
+
+migrate-down:
+	docker-compose exec -T scylla-todoapp cqlsh -f /migrations/0001_init_schema.down.cql
