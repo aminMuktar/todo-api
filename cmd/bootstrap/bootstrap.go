@@ -16,15 +16,15 @@ import (
 	TodoRepository "todo-api/internal/repo/todo/gocql_impl"
 	UserRepository "todo-api/internal/repo/user/gocql_impl"
 	"todo-api/internal/service"
-
+	cors "github.com/rs/cors/wrapper/gin"
 	"github.com/gin-gonic/gin"
 )
 
 func Setup() {
 	//Create a new Gin instance
 	engine := gin.Default()
+	engine.Use(cors.Default())
 	router := engine.Group("/api/v1")
-
 	// Read the configuration.
 	cfg := config.Get()
 
